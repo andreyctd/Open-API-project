@@ -1,1 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  /*background: #f8f8f8; */
+  background: linear-gradient(to right, #03ddfa, #001c69);
+}
 
+h1 {
+  text-align: center;
+}
+h2 {
+    text-align: center;
+}
+p {
+    text-indent: 40px;
+}
+form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+select, button {
+    text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+}
+button {
+    background-color: teal;
+    cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  margin: 10px auto;
+  padding: 10px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.art-image {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 10px; 
+}
