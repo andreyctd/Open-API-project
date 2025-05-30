@@ -1,1 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  /*background: #f8f8f8; */
+  background: linear-gradient(to right, #03ddfa, #001c69);
+}
 
+h1 {
+  text-align: center;
+}
+h2 {
+    text-align: center;
+}
+p {
+    text-indent: 40px;
+}
+form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+select, button {
+    text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+}
+button {
+    /* background-color: teal; */
+    background-color: palevioletred;
+    cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  margin: 10px auto;
+  padding: 10px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.art-image {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 10px; 
+}
+/* footer */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fixed-position footer style */
+#main-footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: palevioletred;
+  font-size: 0.9rem;
+  color: black;
+  width: 100%;
+  margin-left: -17px;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}

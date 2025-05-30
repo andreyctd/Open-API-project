@@ -1,1 +1,59 @@
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="The Art Institute of Chicago API Project" />
+        <meta name="keywords" content="Art Institute, Chicago, API, Artworks, Artists, Code the Dream" />
+        <title><Open-API-project></title>
+        <meta name="author" content="Andrey Gnusarev" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+     <header>
+            <h1>The Art Institute of Chicago</h1>
+        </header>
+    <body>
+        <section>
+            <div id="logo">
+                <a href="https://www.artic.edu/">
+                    <img
+                        src="images/download.jpg"
+                        alt="The Art Institute of Chicago Logo"
+                    />
+                </a>    
+            </div>
+        </section>
+        <main>
+            <h2>Welcome to The Art Institute of Chicago API Project</h2>
+            <p>
+                Welcome to the Art Institute of Chicago,
+            home to a collection of art that spans centuries and the globe and one of
+            the best US attractions of 2025.
+            We look forward to your visit and invite you to explore 
+            our many exhibitions and to join us for one of our free daily tours.
+            </p>
+            <h2>The Art Institute of Chicago - Search by Artist</h2>
+               <form id="search-form">
+               <label for="artist-select">Choose an artist:</label>
+               <select id="artist-select">
+               <option value="">-- Select --</option>
+               <option value="vincent van gogh">Vincent van Gogh</option>
+               <option value="claude monet">Claude Monet</option>
+               <option value="mary cassatt">Mary Cassatt</option>
+               <option value="pablo picasso">Pablo Picasso</option>
+               <option value="henri matisse">Henri Matisse</option>
+               <option value="georges seurat">Georges Seurat</option>
+               <option value="rembrandt van rijn">Rembrandt van Rijn</option>
+               <option value="edward hopper">Edward Hopper</option>
+               <option value="gustave courbet">Gustave Courbet</option>
+               </select>
+               <button type="submit">Search</button>
+               </form>
+               <h2>The Art Institute of Chicago: Artworks</h2>
+               <section id="art-section">
+                  <ul id="art-list"></ul>
+               </section>
+        </main>
+        <script src = "index.js"></script>
+    </body>
+</html>
