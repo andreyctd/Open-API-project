@@ -8,6 +8,7 @@ fetch(`https://api.artic.edu/api/v1/artworks`)
   .then(data => {
       console.log("Artworks:", data);
       const artworks = data.data;
+      renderArtworks(artworks);
       const artList = document.getElementById("art-list");
 
       artworks.forEach(art => {
@@ -15,6 +16,7 @@ fetch(`https://api.artic.edu/api/v1/artworks`)
         const title = document.createElement("h3");
         const artist = document.createElement("p");
         const img = document.createElement("img");
+        const description = document.createElement("p");
 
         title.innerText = art.title;
         artist.innerText = art.artist_title || "Unknown Artist";
@@ -25,9 +27,19 @@ fetch(`https://api.artic.edu/api/v1/artworks`)
           img.className = "art-image";
           li.appendChild(img);
         }
+          
+              description.className = "art-description";
+              if (art.thumbnail?.alt_text) {
+                description.innerText = art.thumbnail.alt_text;
+              } else if (art.artist_display) {
+                description.innerText = art.artist_display;
+              } else {
+                description.innerText = "No description available.";
+              }
 
         li.appendChild(title);
         li.appendChild(artist);
+        li.appendChild(description);
         artList.appendChild(li);
       });
   })
@@ -42,8 +54,9 @@ const artList = document.getElementById("art-list");
 // Fetch artworks filtered by selected artist name
 function fetchArtworksByArtist(artistName) {
   const query = encodeURIComponent(artistName);
-  const apiUrl = `https://api.artic.edu/api/v1/artworks/search?q=${query}&limit=20&fields=title,artist_title,image_id`;
-
+ /* const apiUrl = `https://api.artic.edu/api/v1/artworks/search?q=${query}&limit=20&fields=title,artist_title,image_id`; */
+  const apiUrl = `https://api.artic.edu/api/v1/artworks/search?q=${query}&limit=20&fields=title,artist_title,image_id,thumbnail,artist_display`;
+    
   fetch(apiUrl)
     .then((response) => {
       if (!response.ok) throw new Error("Request failed");
@@ -73,6 +86,7 @@ function renderArtworks(artworks) {
     const title = document.createElement("h3");
     const artist = document.createElement("p");
     const img = document.createElement("img");
+    const description = document.createElement("p");
 
     title.innerText = art.title;
     artist.innerText = art.artist_title || "Unknown Artist";
@@ -84,8 +98,19 @@ function renderArtworks(artworks) {
       li.appendChild(img);
     }
 
+    // Add description
+    description.className = "art-description";
+    if (art.thumbnail?.alt_text) {
+      description.innerText = art.thumbnail.alt_text;
+    } else if (art.artist_display) {
+      description.innerText = art.artist_display;
+    } else {
+      description.innerText = "No description available.";
+    }
+    // Append elements to the list item
     li.appendChild(title);
     li.appendChild(artist);
+    li.appendChild(description);
     artList.appendChild(li);
   });
 }
@@ -99,4 +124,31 @@ form.addEventListener("submit", (e) => {
   } else {
     artList.innerHTML = "<li>Please select an artist first.</li>";
   }
-});
+}); 
+// Create and append the footer
+ const footer = document.createElement("footer");
+footer.id = "main-footer";
+ const footerContent = document.createElement("div");
+footerContent.className = "footer-content";
+ const text = document.createElement("p");
+ text.innerHTML = "&copy; 2025 Art Explorer. All rights reserved.";
+/* footer.innerHTML = `<p>&copy; 2025 Art Explorer. All rights reserved.</p>`; */
+ // Create image element
+const img = document.createElement("img");
+img.src = "images/unnamed.png";
+img.alt = "Logo";
+img.className = "footer-logo";
+img.style.width = "40px";
+img.style.height = "40px";
+// Append image and text to the container
+footerContent.appendChild(img);
+footerContent.appendChild(text);
+
+// Append container to the footer
+footer.appendChild(footerContent);
+
+// Append footer to the body
+document.body.appendChild(footer);
+/* footer.appendChild(img);
+// Append the footer to the body
+ document.body.appendChild(footer); */
